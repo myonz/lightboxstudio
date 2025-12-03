@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
 
 *{
@@ -340,12 +341,10 @@ body{
     left: 0;
     height: 11rem;
     width: 100%;
-    background: url(../images/wave.png);
+    background: url(../images/wave.png);  /* ← GANTI INI */
     background-size: 100rem 11rem;
     animation: waves 8s linear infinite;
     background-repeat: repeat-x;
-
-    /* Jangan ganggu interaksi tombol di atasnya */
     pointer-events: none;
 }
 
@@ -742,7 +741,7 @@ body {
     left: 0;
     height: 11rem;
     width: 100%;
-    background: url(../images/wave.png);
+    background: url(../images/wave.png);  /* ← GANTI INI */
     background-size: 100rem 11rem;
     animation: waves 8s linear infinite;
     background-repeat: repeat-x;
