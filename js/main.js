@@ -1,15 +1,32 @@
 $(document).ready(function() {
 
-    // 1. Toggle Navbar (for mobile)
-    $('.fa-bars').click(function(){
-        $(this).toggleClass('fa-times');
-        $('.navbar').toggleClass('nav-toggle');
-    });
+// 1. Toggle Navbar (for mobile) - IMPROVED
+$('.fa-bars').click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $(this).toggleClass('fa-times');
+    $('.navbar').toggleClass('nav-toggle');
+    $('body').toggleClass('no-scroll');  // Prevent body scroll
+});
 
-    // 2. Sticky Header / Scroll Active Link
-    $(window).on('scroll load', function(){
+// Close menu saat klik link
+$('.navbar ul li a').click(function(){
+    $('.fa-bars').removeClass('fa-times');
+    $('.navbar').removeClass('nav-toggle');
+    $('body').removeClass('no-scroll');
+});
+
+// Close menu saat klik overlay
+$('.navbar').click(function(e){
+    if($(e.target).hasClass('navbar') || $(e.target).hasClass('nav-toggle')){
         $('.fa-bars').removeClass('fa-times');
-        $('.navbar').removeClass('nav-toggle');
+        $(this).removeClass('nav-toggle');
+        $('body').removeClass('no-scroll');
+    }
+});
+    // 2. Sticky Header / Scroll Active Link
+        $(window).on('scroll load', function(){
+    // JANGAN close menu saat scroll - baris ini dihapus
 
         if($(window).scrollTop() > 30){
             $('.header').addClass('scrolled');
